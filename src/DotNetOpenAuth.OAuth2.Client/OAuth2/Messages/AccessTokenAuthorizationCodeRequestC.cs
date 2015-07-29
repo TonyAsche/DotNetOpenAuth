@@ -9,13 +9,15 @@ namespace DotNetOpenAuth.OAuth2.Messages {
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+	using DotNetOpenAuth.Messaging;
 	using Validation;
 
 	/// <summary>
 	/// A request from a Client to an Authorization Server to exchange an authorization code for an access token,
 	/// and (at the authorization server's option) a refresh token.
 	/// </summary>
-	internal class AccessTokenAuthorizationCodeRequestC : AccessTokenAuthorizationCodeRequest {
+    internal class AccessTokenAuthorizationCodeRequestC : AccessTokenAuthorizationCodeRequest, IMessagePossibleJsonData
+    {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AccessTokenAuthorizationCodeRequestC"/> class.
 		/// </summary>
@@ -24,5 +26,7 @@ namespace DotNetOpenAuth.OAuth2.Messages {
 			: base(authorizationServer.TokenEndpoint, authorizationServer.Version) {
 			Requires.NotNull(authorizationServer, "authorizationServer");
 		}
+
+	    public bool JsonRequest { get; set; }
 	}
 }

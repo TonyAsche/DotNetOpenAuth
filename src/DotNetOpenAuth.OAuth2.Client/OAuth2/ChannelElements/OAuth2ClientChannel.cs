@@ -79,7 +79,7 @@ namespace DotNetOpenAuth.OAuth2.ChannelElements {
 			if ((request.HttpMethods & HttpDeliveryMethods.GetRequest) != 0) {
 				httpRequest = InitializeRequestAsGet(request);
 			} else if ((request.HttpMethods & HttpDeliveryMethods.PostRequest) != 0) {
-				httpRequest = InitializeRequestAsPost(request);
+                httpRequest = InitializeRequestAsPost(request);
 			} else {
 				throw new NotSupportedException();
 			}

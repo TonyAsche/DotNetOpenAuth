@@ -38,6 +38,7 @@
     <Compile Include="Messaging\BinaryDataBagFormatter.cs" />
     <Compile Include="Messaging\Bindings\MemoryCryptoKeyAndNonceStore.cs" />
     <Compile Include="Messaging\HttpResponseMessageWithOriginal.cs" />
+    <Compile Include="Messaging\IMessagePossibleJsonData.cs" />
     <Compile Include="Messaging\MessageProtectionTasks.cs" />
     <Compile Include="Messaging\MultipartContentMember.cs" />
     <Compile Include="Messaging\DataBagFormatterBase.cs" />

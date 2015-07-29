@@ -352,6 +352,7 @@ namespace DotNetOpenAuth.OAuth2 {
 				ClientIdentifier = this.ClientIdentifier,
 				Callback = authorizationState.Callback,
 				AuthorizationCode = authorizationSuccess.AuthorizationCode,
+                JsonRequest = this.JsonRequest,
 			};
 			this.ApplyClientCredential(accessTokenRequest);
 			IProtocolMessage accessTokenResponse = await this.Channel.RequestAsync(accessTokenRequest, cancellationToken);
@@ -366,7 +367,9 @@ namespace DotNetOpenAuth.OAuth2 {
 			}
 		}
 
-		/// <summary>
+	    public bool JsonRequest { get; set; }
+
+	    /// <summary>
 		/// Applies the default client authentication mechanism given a client secret.
 		/// </summary>
 		/// <param name="secret">The client secret.  May be <c>null</c></param>
