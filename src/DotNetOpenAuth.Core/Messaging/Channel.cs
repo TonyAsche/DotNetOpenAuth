@@ -1125,7 +1125,7 @@ namespace DotNetOpenAuth.Messaging {
 				ErrorUtilities.VerifyProtocol(requestMessageWithBinaryData == null || requestMessageWithBinaryData.BinaryData.Count == 0, MessagingStrings.BinaryDataRequiresMultipart);
 			    var possibleJsonMessage = requestMessage as IMessagePossibleJsonData;
 			    if (possibleJsonMessage != null && possibleJsonMessage.JsonRequest) {
-                    httpRequest.Content = new StringContent(SerializeAsJson(requestMessage) );
+			        httpRequest.Content = new StringContent(SerializeAsJson(requestMessage), Encoding.UTF8, JsonEncoded);
 			    } else {
 			        httpRequest.Content = new FormUrlEncodedContent(fields);
 			    }
