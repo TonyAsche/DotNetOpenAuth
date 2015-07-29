@@ -1124,13 +1124,10 @@ namespace DotNetOpenAuth.Messaging {
 			} else {
 				ErrorUtilities.VerifyProtocol(requestMessageWithBinaryData == null || requestMessageWithBinaryData.BinaryData.Count == 0, MessagingStrings.BinaryDataRequiresMultipart);
 			    var possibleJsonMessage = requestMessage as IMessagePossibleJsonData;
-                if (possibleJsonMessage != null && possibleJsonMessage.JsonRequest)
-                {
-                    httpRequest.Content = new FormUrlEncodedContent(fields);
-                }
-                else
-                {
-                    httpRequest.Content = new StringContent(SerializeAsJson(requestMessage));
+			    if (possibleJsonMessage != null && possibleJsonMessage.JsonRequest) {
+                    httpRequest.Content = new StringContent(SerializeAsJson(requestMessage) );
+			    } else {
+			        httpRequest.Content = new FormUrlEncodedContent(fields);
 			    }
 			}
 
